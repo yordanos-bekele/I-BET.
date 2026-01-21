@@ -1,3 +1,13 @@
 spring:
-  application:
-    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-service
+          predicates:
+            - path=/api/users/**
+        - id: trading-engine
+          uri: lb://TRADING-engine
+          predicates:
+            - path=/api/trading/**
+  
