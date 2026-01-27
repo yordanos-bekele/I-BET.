@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,12 +40,12 @@ public class RefreshToken {
 
     private String deviceId;
 
-    private LocalDateTime issuedAt = LocalDateTime.now();
+    private LocalDateTime issuedAt;
 
     @Column(nullable = false)
     private LocalDateTime expiresAt;
 
-    private boolean revoked = false;
+    private final boolean revoked = false;
 
     private String replacedByTokenHash;
 
@@ -52,4 +53,11 @@ public class RefreshToken {
 
     @Column(columnDefinition = "TEXT")
     private String userAgent;
+
+    @PrePersist
+    public void prePersist() {
+        if (issuedAt == null) {
+            issuedAt = LocalDateTime.now();
+        }
+    }
 }

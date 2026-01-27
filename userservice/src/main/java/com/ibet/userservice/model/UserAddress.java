@@ -40,5 +40,6 @@ public class UserAddress {
     @Column(nullable = false, length = 2)
     private String countryCode;
 
+    @Builder.Default
     private boolean isPrimary = false;
 }

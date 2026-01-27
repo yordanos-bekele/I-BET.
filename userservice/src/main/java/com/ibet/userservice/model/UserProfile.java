@@ -31,15 +31,17 @@ public class UserProfile {
     private String countryCode;
 
     @Column(length = 3)
+    @Builder.Default
     private String currencyCode = "USD";
 
     @Column(length = 2)
+    @Builder.Default
     private String languageCode = "EN";
 
+    @Builder.Default
     private String timezone = "UTC";
 
-    private boolean marketingConsent = false;
-
+    @Builder.Default
     private boolean twoFactorEnabled = false;
 
     private String twoFactorSecret;
