@@ -1,3 +1,28 @@
 spring:
   application:
     name: userservice
+
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ibet_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8
+    username: root  
+    password: Emama0116811327
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:  # Optional pooling tweaks for dev
+      maximum-pool-size: 10
+      minimum-idle: 5
+  jpa:
+    hibernate:
+      ddl-auto: update  # Auto-creates/updates tables from entities (safe for dev; switch to 'validate' later)
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # Logs parameter values
+
