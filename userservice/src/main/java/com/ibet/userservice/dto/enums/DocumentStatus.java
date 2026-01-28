@@ -1,4 +1,4 @@
-package com.ibet.userservice.enums;
+package com.ibet.userservice.dto.enums;
 
 public enum DocumentStatus {
      PENDING, APPROVED, REJECTED, EXPIRED

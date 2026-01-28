@@ -1,13 +1,14 @@
 package com.ibet.userservice.model;
 
-import com.ibet.userservice.enums.AccountTier;
-import com.ibet.userservice.enums.Status;
-import com.ibet.userservice.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+
+import com.ibet.userservice.dto.enums.AccountTier;
+import com.ibet.userservice.dto.enums.Status;
+import com.ibet.userservice.dto.enums.UserRole;
 
 @Entity
 @Getter
@@ -50,7 +51,7 @@ public class User extends Auditable {
     private int failedLoginAttempts;
 
     @Column(name = "locked_until")
-    private LocalDateTime lockedUntil;
+    private Instant lockedUntil;
 
 }
 

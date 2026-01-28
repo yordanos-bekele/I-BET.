@@ -4,7 +4,7 @@ package com.ibet.userservice.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Entity
 @Getter
@@ -25,7 +25,7 @@ public class UserProfile {
     private String LastName;
 
     @Column(name="date_of_birth")
-    private LocalDateTime dataOfBirth;
+    private Instant dataOfBirth;
 
     @Column(length = 2)
     private String countryCode;

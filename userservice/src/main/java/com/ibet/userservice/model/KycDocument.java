@@ -1,14 +1,15 @@
 package com.ibet.userservice.model;
 
 
-import com.ibet.userservice.enums.DocumentStatus;
-import com.ibet.userservice.enums.DocumentType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.time.LocalDateTime;
+import com.ibet.userservice.dto.enums.DocumentStatus;
+import com.ibet.userservice.dto.enums.DocumentType;
+
+import java.time.Instant;
 import java.util.Map;
 
 @Entity
@@ -34,10 +35,10 @@ public class KycDocument extends Auditable {
     private User verifiedBy;
 
     @Column(name = "verified_at")
-    private LocalDateTime verifiedAt;
+    private Instant verifiedAt;
 
     @Column(name = "expiry_date")
-    private LocalDateTime expiryDate;
+    private Instant expiryDate;
 
     @Column(name = "storage_path")
     private String storagePath;

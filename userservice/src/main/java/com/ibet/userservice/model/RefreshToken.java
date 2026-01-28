@@ -1,6 +1,6 @@
 package com.ibet.userservice.model;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
@@ -40,10 +40,10 @@ public class RefreshToken {
 
     private String deviceId;
 
-    private LocalDateTime issuedAt;
+    private Instant issuedAt;
 
     @Column(nullable = false)
-    private LocalDateTime expiresAt;
+    private Instant expiresAt;
 
     private final boolean revoked = false;
 
@@ -57,7 +57,7 @@ public class RefreshToken {
     @PrePersist
     public void prePersist() {
         if (issuedAt == null) {
-            issuedAt = LocalDateTime.now();
+            issuedAt = Instant.now();
         }
     }
 }
