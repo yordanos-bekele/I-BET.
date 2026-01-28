@@ -1,12 +1,18 @@
-package com.ibet.userservice.dto;
+package com.ibet.userservice.dto.Auth.response;
 
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-public class AuthResponseDto {
+@Setter
+@Getter
+@Data
+public class AuthResponse {
     @Schema(description = "JWT access token")
     private String accessToken;
     

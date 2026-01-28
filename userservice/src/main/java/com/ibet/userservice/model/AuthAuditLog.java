@@ -1,9 +1,9 @@
 package com.ibet.userservice.model;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
-import com.ibet.userservice.enums.AuthEventType;
+import com.ibet.userservice.dto.enums.AuthEventType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,7 +51,7 @@ public class AuthAuditLog {
     private String locationData;
 
     @Column(nullable = false)
-    private LocalDateTime eventTimestamp;
+    private Instant eventTimestamp;
 
     private Boolean success;
 
@@ -60,7 +60,7 @@ public class AuthAuditLog {
     @PrePersist
     protected void onCreate() {
         if (eventTimestamp == null) {
-            eventTimestamp = LocalDateTime.now();
+            eventTimestamp = Instant.now();
         }
     }
 }
